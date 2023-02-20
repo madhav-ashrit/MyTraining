@@ -8,3 +8,5 @@ tf.keras.datasets.fashion_mnist.load_data()
 x_train[0]
 class_labels=["T-shirt/top","Trouser","Pullover","Dress","Coat","Sandal","Shirt","Sneaker","Bag","Ankle boot"]
 class_labels
+plt.figure(figsize=(16,16))
+j=1
