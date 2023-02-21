@@ -10,3 +10,8 @@ class_labels=["T-shirt/top","Trouser","Pullover","Dress","Coat","Sandal","Shirt"
 class_labels
 plt.figure(figsize=(16,16))
 j=1
+for i in np.random.randint(0,1000,25):
+  plt.subplot(5,5,j);j+=1
+  plt.imshow(x_train[i],cmap="Greys")
+  plt.axis('off')
+  plt.title('{} / {}'.format(class_labels[y_train[i]],y_train[i]))
