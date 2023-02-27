@@ -23,3 +23,6 @@ for i in np.random.randint(0,1000,25):
 x_test=x_test/255
 from sklearn.model_selection import train_test_split
 x_train,x_validation,y_train,y_validation=train_test_split(x_train,y_train,test_size=0.2,random_state=2020)
+x_train.shape,x_validation.shape,y_train.shape,y_validation.shape
+x_train=np.reshape(x_train,(48000,28,28,1))
+x_validation=np.reshape(x_validation,(12000,28,28,1))
