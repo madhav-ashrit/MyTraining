@@ -26,3 +26,5 @@ x_train,x_validation,y_train,y_validation=train_test_split(x_train,y_train,test_
 x_train.shape,x_validation.shape,y_train.shape,y_validation.shape
 x_train=np.reshape(x_train,(48000,28,28,1))
 x_validation=np.reshape(x_validation,(12000,28,28,1))
+x_test.shape
+x_test=np.reshape(x_test,(10000,28,28,1))
