@@ -28,3 +28,10 @@ x_train=np.reshape(x_train,(48000,28,28,1))
 x_validation=np.reshape(x_validation,(12000,28,28,1))
 x_test.shape
 x_test=np.reshape(x_test,(10000,28,28,1))
+model=keras.models.Sequential([
+    keras.layers.Conv2D(filters=32,kernel_size=3,strides=(1,1),padding='valid',activation='relu',input_shape=[28,28,1]),
+    keras.layers.MaxPooling2D(pool_size=(2,2)),
+    keras.layers.Flatten(),
+    keras.layers.Dense(units=128,activation='relu'),
+    keras.layers.Dense(units=10,activation='softmax')
+])
