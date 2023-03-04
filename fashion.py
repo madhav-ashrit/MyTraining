@@ -35,3 +35,6 @@ model=keras.models.Sequential([
     keras.layers.Dense(units=128,activation='relu'),
     keras.layers.Dense(units=10,activation='softmax')
 ])
+model.summary()
+model.compile(optimizer='adam',loss='sparse_categorical_crossentropy',metrics=['accuracy'])
+model.fit(x_train,y_train,epochs=10,batch_size=512,verbose=1,validation_data=(x_validation,y_validation)) 
