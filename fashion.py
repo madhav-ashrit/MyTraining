@@ -38,3 +38,14 @@ model=keras.models.Sequential([
 model.summary()
 model.compile(optimizer='adam',loss='sparse_categorical_crossentropy',metrics=['accuracy'])
 model.fit(x_train,y_train,epochs=10,batch_size=512,verbose=1,validation_data=(x_validation,y_validation)) 
+y_pred=model.predict(x_test)
+y_pred.round(2)
+y_test
+model.evaluate(x_test,y_test)
+plt.figure(figsize=(16,16))
+j=1
+for i in np.random.randint(0,1000,25):
+  plt.subplot(5,5,j);j+=1
+  plt.imshow(x_test[i].reshape(28,28),cmap='Greys')
+  plt.title('Actual= {} / {} \n Predicted {} / {}'.format(class_labels[y_test[i]],y_test[i],class_labels[np.argmax(y_pred[i])],np.argmax(y_pred[i])))
+  plt.axis('off')
