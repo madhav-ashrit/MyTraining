@@ -49,3 +49,7 @@ for i in np.random.randint(0,1000,25):
   plt.imshow(x_test[i].reshape(28,28),cmap='Greys')
   plt.title('Actual= {} / {} \n Predicted {} / {}'.format(class_labels[y_test[i]],y_test[i],class_labels[np.argmax(y_pred[i])],np.argmax(y_pred[i])))
   plt.axis('off')
+  from sklearn.metrics import confusion_matrix
+plt.figure(figsize=(16,9))
+y_pred_labels=[np.argmax(label) for label in y_pred]
+cm = confusion_matrix(y_test, y_pred_labels)
