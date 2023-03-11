@@ -53,3 +53,7 @@ for i in np.random.randint(0,1000,25):
 plt.figure(figsize=(16,9))
 y_pred_labels=[np.argmax(label) for label in y_pred]
 cm = confusion_matrix(y_test, y_pred_labels)
+sns.heatmap(cm,annot=True,fmt='d',xticklabels=class_labels,yticklabels=class_labels)
+from sklearn.metrics import classification_report
+cr=classification_report(y_test,y_pred_labels, target_names=class_labels)
+print(cr)
