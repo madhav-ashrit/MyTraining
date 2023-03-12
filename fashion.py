@@ -57,3 +57,17 @@ sns.heatmap(cm,annot=True,fmt='d',xticklabels=class_labels,yticklabels=class_lab
 from sklearn.metrics import classification_report
 cr=classification_report(y_test,y_pred_labels, target_names=class_labels)
 print(cr)
+model.save('fashion_mnist_cnn_model.h5')
+cnn_model2=keras.models.Sequential([
+    keras.layers.Conv2D(filters=32,kernel_size=3,strides=(1,1),padding='valid',activation='relu',input_shape=[28,28,1]),
+    keras.layers.MaxPooling2D(pool_size=(2,2)),
+    keras.layers.Conv2D(filters=64,kernel_size=3,strides=(1,1),padding='same',activation='relu'),
+    keras.layers.MaxPooling2D(pool_size=(2,2)),
+    keras.layers.Flatten(),
+    keras.layers.Dense(units=128,activation='relu'),
+    keras.layers.Dropout(0.25),
+    keras.layers.Dense(units=256,activation='relu'),
+    keras.layers.Dropout(0.25),
+    keras.layers.Dense(units=128,activation='relu'),
+    keras.layers.Dense(units=10,activation='softmax')
+])
