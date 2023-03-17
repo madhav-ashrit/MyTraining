@@ -71,3 +71,23 @@ cnn_model2=keras.models.Sequential([
     keras.layers.Dense(units=128,activation='relu'),
     keras.layers.Dense(units=10,activation='softmax')
 ])
+cnn_model2.compile(optimizer='adam',loss='sparse_categorical_crossentropy',metrics=['accuracy'])
+cnn_model2.fit(x_train,y_train,epochs=20,batch_size=512,verbose=1,validation_data=(x_validation,y_validation)) 
+cnn_model3=keras.models.Sequential([
+    keras.layers.Conv2D(filters=64,kernel_size=3,strides=(1,1),padding='valid',activation='relu',input_shape=[28,28,1]),
+    keras.layers.MaxPooling2D(pool_size=(2,2)),
+    keras.layers.Conv2D(filters=128,kernel_size=3,strides=(2,2),padding='same',activation='relu'),
+    keras.layers.MaxPooling2D(pool_size=(2,2)),
+    keras.layers.Conv2D(filters=64,kernel_size=3,strides=(2,2),padding='same',activation='relu'),
+    keras.layers.MaxPooling2D(pool_size=(2,2)),
+    keras.layers.Flatten(),
+    keras.layers.Dense(units=128,activation='relu'),
+    keras.layers.Dropout(0.25),
+    keras.layers.Dense(units=256,activation='relu'),
+    keras.layers.Dropout(0.5),
+    keras.layers.Dense(units=256,activation='relu'),
+    keras.layers.Dropout(0.25),
+    keras.layers.Dense(units=128,activation='relu'),
+    keras.layers.Dropout(0.10),
+    keras.layers.Dense(units=10,activation='softmax')
+])
