@@ -91,3 +91,8 @@ cnn_model3=keras.models.Sequential([
     keras.layers.Dropout(0.10),
     keras.layers.Dense(units=10,activation='softmax')
 ])
+cnn_model3.compile(optimizer='adam',loss='sparse_categorical_crossentropy',metrics=['accuracy'])
+cnn_model3.fit(x_train,y_train,epochs=50,batch_size=512,verbose=1,validation_data=(x_validation,y_validation)) 
+cnn_model2.save('fashion_mnist_cnn_model2.h5')
+cnn_model3.save('fashion_mnist_cnn_model3.h5')
+cnn_model3.evaluate(x_test,y_test)
